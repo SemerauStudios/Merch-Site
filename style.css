@@ -33,7 +33,7 @@ header {
 .header-row {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spread logos to edges */
+    justify-content: space-between;
     padding-top: 1em;
     padding-bottom: 0.2em;
     position: relative;
@@ -83,7 +83,7 @@ header {
     text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
     line-height: 1.1;
     padding-left: 0;
-    pointer-events: none; /* Allows clicks to pass through */
+    pointer-events: none;
 }
 
 h1 {
@@ -422,8 +422,7 @@ main {
     .logo {
         width: 70px;
         height: 70px;
-        top: 25
-    px;
+        top: 25px;
     }
 }
 
