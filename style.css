@@ -1,0 +1,492 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #232323;
+    background: url('https://raw.githubusercontent.com/SemerauStudios/Merch-Site/main/drifts%20gardens/banner.png') no-repeat center bottom fixed;
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.93);
+    pointer-events: none;
+    z-index: 0;
+}
+header, main {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    padding-bottom: 0.5em;
+    border-bottom: 5px solid #d32f2f;
+    position: relative;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spread logos to edges */
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+    position: relative;
+    min-height: 80px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #d32f2f;
+    box-shadow: 0 0 0 5px #fff;
+    position: absolute;
+    left: 2vw;
+    top: 35px;
+    transform: translateY(0);
+}
+
+.logo-right {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 50%;
+    border: 4px solid #d32f2f;
+    box-shadow: 0 0 0 5px #fff;
+    position: absolute;
+    right: 2vw;
+    top: 35px;
+    transform: translateY(0);
+}
+
+.brand-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+    font-family: 'Cookie', cursive;
+    font-size: 4.5em;
+    color: #d32f2f;
+    letter-spacing: 2.5px;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+    line-height: 1.1;
+    padding-left: 0;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+h1 {
+    margin-top: 0.2em;
+    font-size: 2.1em;
+    color: #d32f2f;
+    letter-spacing: 1px;
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 1px 0 #fff;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    padding: 2em 1em 5em 1em;
+    align-items: stretch;
+}
+
+.products, .cart {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+}
+
+.products {
+    max-width: 600px;
+}
+
+.product {
+    background: #fff;
+    padding: 1.5em 1em 1em 1em;
+    margin-bottom: 2em;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(211, 47, 47, 0.12);
+    border: 2px solid #d32f2f;
+    transition: box-shadow 0.2s;
+}
+
+.product:last-child {
+    margin-bottom: 0;
+}
+
+.product:hover {
+    box-shadow: 0 8px 24px rgba(211, 47, 47, 0.20);
+    border-color: #000;
+}
+
+.product h2 {
+    color: #232323;
+    font-size: 1.3em;
+    margin-bottom: 0.7em;
+    font-weight: bold;
+    border-left: 5px solid #d32f2f;
+    padding-left: 0.5em;
+}
+
+.shirt-images {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 0.8em;
+    flex-wrap: wrap;
+}
+
+.shirt-front, .shirt-back, .cap-image {
+    width: 120px;
+    border-radius: 7px;
+    border: 2px solid #232323;
+    background: #fff;
+    padding: 4px;
+    max-width: 45vw;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+.product-price {
+    color: #d32f2f;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 0.5em 0 0.6em 0;
+}
+
+.add-to-cart {
+    margin-top: 1em;
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 1px 2px 0 #232323;
+    transition: background 0.2s, box-shadow 0.2s;
+    min-width: 120px;
+    min-height: 44px;
+}
+.add-to-cart:hover,
+.add-to-cart:focus {
+    background: #b71c1c;
+    box-shadow: 2px 4px 0 #232323;
+}
+
+.cart {
+    flex: 1;
+    background: #fff;
+    padding: 1em;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.13);
+    max-width: 320px;
+    min-width: 220px;
+    border: 2px solid #232323;
+    height: 100%;
+}
+
+.cart h2 {
+    color: #d32f2f;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #d32f2f;
+    padding-bottom: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+#cart-items {
+    min-height: 60px;
+}
+
+#cart-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#cart-items li {
+    border-bottom: 1px solid #eee;
+    padding: 0.5em 0 0.7em 0;
+    color: #232323;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    gap: 0.2em;
+}
+
+.cart-item-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cart-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.cart-qty-btn {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    background: #fff;
+    color: #d32f2f;
+    border: 1.5px solid #d32f2f;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s, color 0.2s;
+}
+.cart-qty-btn:disabled {
+    color: #ccc;
+    border-color: #eee;
+    background: #fafafa;
+    cursor: not-allowed;
+}
+
+.cart-qty-value {
+    display: inline-block;
+    min-width: 22px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+#cart-items .remove-btn {
+    background: #fff;
+    color: #d32f2f;
+    border: 1.5px solid #d32f2f;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 0.2em 0.7em;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin: 0.5em auto 0.2em auto;
+    display: block;
+    min-width: 70px;
+    min-height: 36px;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+#cart-items .remove-btn:hover,
+#cart-items .remove-btn:focus {
+    background: #d32f2f;
+    color: #fff;
+}
+
+#cart-summary {
+    margin-top: 1em;
+    font-size: 1.07em;
+    color: #232323;
+}
+#cart-summary h3 {
+    color: #d32f2f;
+}
+
+#checkout-btn {
+    margin-top: 1.2em;
+    background: #232323;
+    color: #fff;
+    border: 2px solid #d32f2f;
+    padding: 0.8em 1.7em;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    min-width: 160px;
+    min-height: 48px;
+}
+#checkout-btn:hover:not(:disabled),
+#checkout-btn:focus:not(:disabled) {
+    background: #d32f2f;
+    color: #fff;
+}
+#checkout-btn:disabled {
+    background: #eee;
+    color: #aaa;
+    cursor: not-allowed;
+    border: 2px dashed #aaa;
+}
+
+/* Image Expander Styles */
+.product-image-expandable {
+    cursor: zoom-in;
+    transition: box-shadow 0.2s, transform 0.2s;
+    z-index: 1;
+    position: relative;
+}
+.product-image-expandable:hover {
+    box-shadow: 0 0 0 4px #d32f2f55, 0 8px 32px rgba(0,0,0,0.18);
+    transform: scale(1.07);
+}
+
+.image-modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.78);
+    justify-content: center;
+    align-items: center;
+}
+.image-modal-overlay.active {
+    display: flex;
+}
+
+.image-modal-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 36px #000c, 0 0 0 8px #fff7;
+    border: 3px solid #fff;
+    animation: popin 0.25s cubic-bezier(.77,1.8,.4,.8);
+}
+
+@keyframes popin {
+    0% { transform: scale(0.75); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 4vw;
+    right: 4vw;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    font-size: 2.2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 48px; height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    transition: background 0.18s;
+}
+.image-modal-close:hover { background: #d32f2f; }
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2em;
+        padding: 1em 0.5em 7em 0.5em;
+    }
+    .products {
+        max-width: 100%;
+    }
+    .cart {
+        margin: 0 auto;
+        max-width: 98vw;
+        min-width: unset;
+    }
+    .header-row {
+        min-height: 70px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+        top: 25
+    px;
+    }
+}
+
+@media (max-width: 700px) {
+    .brand-title {
+        font-size: 2.4em;
+        padding: 0.1em 0 0.1em 0;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
+        left: 2vw;
+        top: 18px;
+    }
+    .logo-right {
+        width: 60px;
+        height: 60px;
+        right: 2vw;
+        top: 18px;
+    }
+    h1 {
+        font-size: 1.1em;
+    }
+    .product h2 {
+        font-size: 1.05em;
+    }
+    .product {
+        padding: 1em 0.5em 0.5em 0.5em;
+        border-radius: 8px;
+    }
+    .shirt-front, .shirt-back, .cap-image {
+        width: 80px;
+        padding: 2px;
+        border-radius: 5px;
+        max-width: 85vw;
+    }
+    .cart-qty-btn {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        min-height: 22px;
+        font-size: 1em;
+    }
+    .cart-qty-value {
+        min-width: 18px;
+        font-size: 1em;
+    }
+    #cart-items .remove-btn {
+        font-size: 0.9em;
+        min-width: 54px;
+        min-height: 28px;
+        padding: 0.15em 0.4em;
+    }
+    #checkout-btn {
+        font-size: 1em;
+        padding: 0.7em 1em;
+        min-width: 110px;
+        min-height: 40px;
+    }
+    .cart {
+        padding: 0.7em;
+        border-radius: 8px;
+    }
+    .image-modal-close { top: 3vw; right: 3vw; width: 38px; height: 38px; font-size: 1.5rem;}
+    .image-modal-img { max-width: 98vw; max-height: 70vh; }
+}
