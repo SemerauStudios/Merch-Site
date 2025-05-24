@@ -99,13 +99,13 @@ function updateCartDisplay() {
                 <div>
                     ${item.name}${item.selectedSize ? " - " + item.selectedSize : ""}
                     <div class="cart-quantity-controls">
-                        <button class="cart-qty-btn" onclick="changeQuantity(${idx}, -1)" ${item.quantity === 1 ? "disabled" : ""}>-</button>
+                        <button class="cart-qty-btn" type="button" data-idx="${idx}" data-delta="-1" ${item.quantity === 1 ? "disabled" : ""}>-</button>
                         <span class="cart-qty-value">${item.quantity}</span>
-                        <button class="cart-qty-btn" onclick="changeQuantity(${idx}, 1)" ${item.quantity === 5 ? "disabled" : ""}>+</button>
+                        <button class="cart-qty-btn" type="button" data-idx="${idx}" data-delta="1" ${item.quantity === 5 ? "disabled" : ""}>+</button>
                     </div>
                 </div>
             </div>
-            <button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button>
+            <button class="remove-btn" type="button" data-remove-idx="${idx}">Remove</button>
         </li>`;
 
         subtotal += item.price * item.quantity;
@@ -126,6 +126,9 @@ function updateCartDisplay() {
     `;
     document.getElementById("checkout-btn").disabled = false;
 
+    // Setup cart events again since HTML is replaced
+    setupCartEvents();
+
     // Re-apply expander setup for any new images added to cart
     setupImageExpander();
 }
@@ -144,19 +147,50 @@ function removeFromCart(index) {
     updateCartDisplay();
 }
 
+// Checkout with Square links for each product
 function checkout() {
-    const shipping = getShippingSelection();
-    alert(`Square checkout would be initiated here.\nShipping Method: ${shipping.label} ($${shipping.price})\n(Integration required)`);
+    // Check for exactly one unique product type in the cart
+    if (cart.length === 1) {
+        const item = cart[0];
+        if (item.type === "cap-black") {
+            window.location.href = "https://square.link/u/fQkXHHAY";
+        } else if (item.type === "shirt") {
+            window.location.href = "https://square.link/u/XcIXg56T";
+        } else if (item.type === "cap-white") {
+            window.location.href = "https://square.link/u/ox6wsnMT";
+        } else {
+            alert("Checkout is only available for T-Shirts and Caps.");
+        }
+    } else {
+        alert("Please add only one type of item to your cart and try again. (One product per checkout is currently supported.)");
+    }
+}
+
+// Setup cart event listeners
+function setupCartEvents() {
+    // Quantity change
+    document.querySelectorAll('.cart-qty-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const idx = parseInt(btn.getAttribute('data-idx'), 10);
+            const delta = parseInt(btn.getAttribute('data-delta'), 10);
+            changeQuantity(idx, delta);
+        });
+    });
+    // Remove item
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const idx = parseInt(btn.getAttribute('data-remove-idx'), 10);
+            removeFromCart(idx);
+        });
+    });
 }
 
 // Image expand/zoom feature for product images
 function setupImageExpander() {
-    // Add class to all product images that should be expandable
     document.querySelectorAll('.product-image-expandable').forEach(img => {
-        // Prevent duplicate listeners
         if (img.dataset.expanderBound) return;
         img.dataset.expanderBound = "1";
-        img.setAttribute('tabindex', 0); // make focusable for accessibility
+        img.setAttribute('tabindex', 0);
 
         img.addEventListener('click', function(e) {
             openImageModal(img.src, img.alt);
@@ -169,7 +203,6 @@ function setupImageExpander() {
         });
     });
 
-    // Modal overlay event listeners (only once)
     const overlay = document.getElementById('image-modal-overlay');
     if (overlay && !overlay.dataset.expanderBound) {
         overlay.dataset.expanderBound = "1";
@@ -193,7 +226,6 @@ function openImageModal(src, alt) {
         modalImg.src = src;
         modalImg.alt = alt;
         overlay.classList.add('active');
-        // Set focus for accessibility
         setTimeout(() => {
             document.querySelector('.image-modal-close')?.focus();
         }, 100);
@@ -204,8 +236,34 @@ function closeImageModal() {
     if (overlay) overlay.classList.remove('active');
 }
 
-// Call the setup function after DOM is loaded
-window.onload = function() {
+// Setup product "Add to Cart" buttons and shipping change event
+function setupProductEvents() {
+    // Add to Cart buttons
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const productKey = btn.getAttribute('data-product');
+            addToCart(productKey);
+        });
+    });
+    // Shipping change event
+    const shippingSelect = document.getElementById('shipping-method');
+    if (shippingSelect) {
+        shippingSelect.addEventListener('change', function() {
+            updateCartDisplay();
+        });
+    }
+    // Checkout button
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+            checkout();
+        });
+    }
+}
+
+// On DOM loaded
+window.addEventListener('DOMContentLoaded', function() {
+    setupProductEvents();
     updateCartDisplay();
     setupImageExpander();
-};
+});
