@@ -18,7 +18,7 @@
         <h1>Merch Store</h1>
     </header>
     <main>
-        <section class="products">
+        <section class="products" aria-label="Available Products">
             <div class="product" data-product="shirt">
                 <h2>Drift's Gardeners T-Shirt (Black)</h2>
                 <div class="shirt-images">
@@ -41,7 +41,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button class="add-to-cart" onclick="addToCart('shirt')">Add to Cart</button>
+                <button class="add-to-cart" type="button" data-product="shirt">Add to Cart</button>
             </div>
             <div class="product" data-product="cap-white">
                 <h2>Drift's Gardeners Cap (White)</h2>
@@ -56,7 +56,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button class="add-to-cart" onclick="addToCart('cap-white')">Add to Cart</button>
+                <button class="add-to-cart" type="button" data-product="cap-white">Add to Cart</button>
             </div>
             <div class="product" data-product="cap-black">
                 <h2>Drift's Gardeners Cap (Black)</h2>
@@ -71,27 +71,26 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button class="add-to-cart" onclick="addToCart('cap-black')">Add to Cart</button>
+                <button class="add-to-cart" type="button" data-product="cap-black">Add to Cart</button>
             </div>
         </section>
-        <section class="cart">
+        <section class="cart" aria-label="Shopping Cart">
             <h2>Cart</h2>
-            <div id="cart-items">
+            <div id="cart-items" aria-live="polite">
                 <p>Your cart is empty.</p>
             </div>
             <div>
                 <label for="shipping-method" style="font-weight:bold;margin-top:1em;display:inline-block;">Shipping:</label>
-                <select id="shipping-method" onchange="updateCartDisplay()" style="margin-left:6px;">
+                <select id="shipping-method" style="margin-left:6px;">
                     <option value="economy">Economy ($10)</option>
                     <option value="standard">Standard ($15)</option>
                     <option value="express">Express ($25)</option>
                 </select>
             </div>
-            <div id="cart-summary"></div>
-            <button id="checkout-btn" onclick="checkout()">Checkout with Square</button>
+            <div id="cart-summary" aria-live="polite"></div>
+            <button id="checkout-btn" type="button">Checkout with Square</button>
         </section>
     </main>
-
     <!-- Modal overlay for image expander -->
     <div id="image-modal-overlay" class="image-modal-overlay" tabindex="-1" aria-modal="true" aria-label="Product image expanded view">
         <button class="image-modal-close" aria-label="Close enlarged image" tabindex="0">&times;</button>
