@@ -521,7 +521,7 @@ main {
 .social-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 22px;
     margin: 2em 0 1em 0;
     z-index: 1;
@@ -529,7 +529,7 @@ main {
 
 .social-link {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
     text-decoration: none;
     transition: transform 0.15s;
