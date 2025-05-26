@@ -512,9 +512,8 @@ main {
     body {
         background-image: url('https://raw.githubusercontent.com/SemerauStudios/Merch-Site/main/drifts%20gardens/mobile%20site%20vertical%20background.jpeg');
         background-size: contain;
-        background-position: center top;
+        background-position: center center;
         background-repeat: no-repeat;
-        /* Fix for mobile background bouncing */
         background-attachment: scroll !important;
     }
 }
