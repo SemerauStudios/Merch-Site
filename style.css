@@ -119,7 +119,7 @@ main {
 }
 
 .product {
-    background: rgba(255,255,255,0.82); /* semi-transparent */
+    background: rgba(255,255,255,0.30); /* semi-transparent */
     padding: 1.5em 1em 1em 1em;
     margin-bottom: 2em;
     border-radius: 12px;
@@ -195,7 +195,7 @@ main {
 
 .cart {
     flex: 1;
-    background: rgba(255,255,255,0.78); /* semi-transparent */
+    background: rgba(255,255,255,0.30); /* semi-transparent */
     padding: 1em;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.13);
@@ -450,12 +450,12 @@ main {
     .product {
         padding: 1em 0.5em 0.5em 0.5em;
         border-radius: 8px;
-        background: rgba(255,255,255,0.82); /* ensure transparency on mobile */
+        background: rgba(255,255,255,0.30); /* ensure transparency on mobile */
     }
     .cart {
         padding: 0.7em;
         border-radius: 8px;
-        background: rgba(255,255,255,0.78); /* ensure transparency on mobile */
+        background: rgba(255,255,255,0.30); /* ensure transparency on mobile */
     }
     /* Product images in shop (mobile view) */
     .shirt-front, .shirt-back, .cap-image {
@@ -503,6 +503,10 @@ main {
 
 /* -- Mobile vertical (portrait) custom background image -- */
 @media (max-width: 700px) and (orientation: portrait) {
+    .shirt-front, .shirt-back, .cap-image{
+        width: 120px;
+        max-width: 98vw;
+    }
     body {
         background-image: url('https://raw.githubusercontent.com/SemerauStudios/Merch-Site/main/drifts%20gardens/mobile%20site%20vertical%20background.jpeg');
         background-size: cover;
