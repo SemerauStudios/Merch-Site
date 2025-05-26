@@ -4,6 +4,8 @@ body {
     color: #232323;
     background: url('https://raw.githubusercontent.com/SemerauStudios/Merch-Site/main/drifts%20gardens/banner.png') no-repeat center bottom fixed;
     background-size: 100vw auto;
+    background-position: center bottom;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
 }
@@ -329,8 +331,8 @@ main {
     min-width: 160px;
     min-height: 48px;
 }
-#checkout-btn:hover:not(:disabled),
-#checkout-btn:focus:not(:disabled) {
+#checkout-btn:hover:not([disabled]),
+#checkout-btn:focus:not([disabled]) {
     background: #d32f2f;
     color: #fff;
 }
@@ -375,6 +377,7 @@ main {
     box-shadow: 0 8px 36px #000c, 0 0 0 8px #fff7;
     border: 3px solid #fff;
     animation: popin 0.25s cubic-bezier(.77,1.8,.4,.8);
+    will-change: transform, opacity;
 }
 
 @keyframes popin {
@@ -510,7 +513,8 @@ main {
     body {
         background-image: url('https://raw.githubusercontent.com/SemerauStudios/Merch-Site/main/drifts%20gardens/mobile%20site%20vertical%20background.jpeg');
         background-size: cover;
-        background-position: center top;
+        background-position: center bottom;
+        background-attachment: scroll;
         background-repeat: no-repeat;
     }
 }
