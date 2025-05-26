@@ -87,10 +87,10 @@ function updateCartDisplay() {
     cart.forEach((item, idx) => {
         let imgTag = "";
         if (item.type === "shirt") {
-            imgTag = `<img src="${item.image}" alt="Shirt Front" class="shirt-front product-image-expandable" style="width:40px;height:auto;margin-right:6px;vertical-align:middle;border-radius:4px;border:1px solid #ccc;">` +
-                     `<img src="${item.backImage}" alt="Shirt Back" class="shirt-back product-image-expandable" style="width:40px;height:auto;margin-right:6px;vertical-align:middle;border-radius:4px;border:1px solid #ccc;">`;
+            // Only show the front of the shirt in the cart, no inline width!
+            imgTag = `<img src="${item.image}" alt="Shirt Front" class="shirt-front product-image-expandable" style="height:auto;margin-right:6px;vertical-align:middle;border-radius:4px;border:1px solid #d32f2f;">`;
         } else if (item.type === "cap-white" || item.type === "cap-black") {
-            imgTag = `<img src="${item.image}" alt="Cap" class="cap-image product-image-expandable" style="width:40px;height:auto;margin-right:6px;vertical-align:middle;border-radius:4px;border:1px solid #ccc;">`;
+            imgTag = `<img src="${item.image}" alt="Cap" class="cap-image product-image-expandable" style="height:auto;margin-right:6px;vertical-align:middle;border-radius:4px;border:1px solid #d32f2f;">`;
         }
 
         html += `<li>
