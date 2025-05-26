@@ -585,6 +585,10 @@ main {
         margin: 1.3em 0 0.6em 0;
         gap: 13px;
     }
+    @media (max-width: 120px) {
+    .social-links {
+        display: none !important;
+    }
 }
 
 /* Mobile */
@@ -602,4 +606,9 @@ main {
         gap: 9px;
         margin: 0.8em 0 0.4em 0;
     }
+@media (max-width: 120px) {
+    .social-links {
+        display: none !important;
+    }
 }
+
