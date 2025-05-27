@@ -501,6 +501,59 @@ main {
     }
     .image-modal-close { top: 3vw; right: 3vw; width: 38px; height: 38px; font-size: 1.5rem;}
     .image-modal-img { max-width: 98vw; max-height: 70vh; }
+
+    /* Merge from duplicate block below */
+    .header-row {
+        min-height: unset;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+        position: relative;
+    }
+    .logo,
+    .logo-right {
+        width: 48px;
+        height: 48px;
+        position: static;
+        margin: 0 6px;
+        box-shadow: 0 0 0 3px #fff;
+        left: unset;
+        right: unset;
+        top: unset;
+        background: #fff;
+        border-radius: 50%;
+        border: 3px solid #d32f2f;
+        object-fit: cover;
+    }
+    .brand-title {
+        position: static;
+        text-align: center;
+        width: auto;
+        font-size: 1.6em;
+        line-height: 1.05;
+        margin: 0 auto;
+        padding: 0;
+        z-index: 2;
+        letter-spacing: 1.5px;
+        color: #d32f2f;
+        text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+        font-family: 'Cookie', cursive;
+    }
+    header {
+        padding-bottom: 0.1em;
+    }
+    h1 {
+        font-size: 1em;
+        margin: 0.1em 0 0.2em 0;
+        text-align: center;
+        letter-spacing: 0.5px;
+        color: #d32f2f;
+        text-shadow: 1px 1px 0 #fff;
+        font-family: Arial, sans-serif;
+    }
 }
 
 /* -- Mobile vertical (portrait) custom background image -- */
@@ -539,56 +592,58 @@ main {
 
 .social-icon {
     width: 40px;
-    height: 40px;
-    display: block;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.11);
-    border: 1.5px solid #232323;
-    padding: 4px;
 }
-
-.social-text {
-    font-family: Arial, sans-serif;
-    font-size: 1.05em;
-    color: #232323;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    text-shadow: none;
-    transition: color 0.2s;
-    margin-right: 2px;
-}
-
-.discord-link .social-text { color: #5865F2; }
-.instagram-link .social-text { color: #d32f2f; }
-
-.social-link:hover .social-text,
-.social-link:focus .social-text {
-    text-decoration: underline;
-    color: #000;
-}
-
-/* --- Fix header height for mobile --- */
+/* Removed duplicate @media (max-width: 700px) block; merged into previous block */
 @media (max-width: 700px) {
     .header-row {
-        min-height: 44px;            /* Smaller header */
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
+        min-height: unset;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+        position: relative;
     }
     .logo,
     .logo-right {
-        width: 38px;                 /* Smaller logos */
-        height: 38px;
-        top: 8px;                    /* Position closer to top */
+        width: 48px;
+        height: 48px;
+        position: static;
+        margin: 0 6px;
+        box-shadow: 0 0 0 3px #fff;
+        left: unset;
+        right: unset;
+        top: unset;
+        background: #fff;
+        border-radius: 50%;
+        border: 3px solid #d32f2f;
+        object-fit: cover;
     }
     .brand-title {
-        font-size: 1.2em;            /* Smaller title */
-        padding: 0.1em 0;
+        position: static;
+        text-align: center;
+        width: auto;
+        font-size: 1.6em;
+        line-height: 1.05;
+        margin: 0 auto;
+        padding: 0;
+        z-index: 2;
+        letter-spacing: 1.5px;
+        color: #d32f2f;
+        text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+        font-family: 'Cookie', cursive;
+    }
+    header {
+        padding-bottom: 0.1em;
     }
     h1 {
-        font-size: 1em;              /* Slightly smaller subtitle */
-        margin-top: 0;
-        margin-bottom: 0.1em;
+        font-size: 1em;
+        margin: 0.1em 0 0.2em 0;
+        text-align: center;
+        letter-spacing: 0.5px;
+        color: #d32f2f;
+        text-shadow: 1px 1px 0 #fff;
+        font-family: Arial, sans-serif;
     }
 }
