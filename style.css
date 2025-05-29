@@ -421,8 +421,8 @@ main {
         min-height: 56px;
     }
     .logo, .logo-right {
-        width: 68px;
-        height: 68px;
+        width: 65px;
+        height: 65px;
         background: #fff;
         top: 12px;
         border-radius: 50%;
@@ -499,7 +499,7 @@ main {
         min-height: 40px !important;
     }
     .brand-title {
-        font-size: 3em !important; /* Larger on mobile */
+        font-size: 2.8em !important; /* Larger on mobile */
         line-height: 1 !important;
         margin-top: 0.04em !important;
         margin-bottom: 0.04em !important;
