@@ -421,10 +421,10 @@ main {
         min-height: 56px;
     }
     .logo, .logo-right {
-        width: 65px;
-        height: 65px;
+        width: 62px;
+        height: 62px;
         background: #fff;
-        top: 12px;
+        top: 8px;
         border-radius: 50%;
         border: 2px solid #d32f2f;
         object-fit: cover;
