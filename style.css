@@ -499,13 +499,13 @@ main {
         min-height: 40px !important;
     }
     .brand-title {
-        font-size: 2.8em !important; /* Larger on mobile */
+        font-size: 2.6em !important; /* Larger on mobile */
         line-height: 1 !important;
         margin-top: 0.04em !important;
         margin-bottom: 0.04em !important;
     }
     h1 {
-        font-size: 1.9em !important; /* Larger on mobile */
+        font-size: 1.6em !important; /* Larger on mobile */
         margin-top: 0 !important;
         margin-bottom: 0.13em !important;
     }
